@@ -4,23 +4,10 @@ import starIcon from "@/assets/images/star.svg";
 const Footer = () => {
   return (
     <footer id="footer" className="w-full bg-white py-12 md:py-16">
-      {/* Decorative line with icons - full width */}
-      <div className="relative w-full mb-8">
-        {/* Heart doodle (left) */}
-        <img
-          src={heartIcon}
-          alt="Heart doodle"
-          className="hidden md:block absolute left-[-12rem] top-[-20rem] h-[19rem] w-auto opacity-70"
-        />
-
+      {/* Decorative line with icons */}
+      <div className="relative w-full mb-8 overflow-visible">
+        {/* Full-width gradient line */}
         <div className="w-full h-px bg-gradient-to-r from-muted-foreground/40 via-transparent to-muted-foreground/40" />
-
-        {/* Star (right) */}
-        <img
-          src={starIcon}
-          alt="Star"
-          className="hidden md:block absolute right-[-10rem] top-[-10rem] h-[5rem] w-auto opacity-90"
-        />
       </div>
 
       {/* Constrained footer content */}

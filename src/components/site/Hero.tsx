@@ -1,35 +1,55 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 
+// It's a good practice to import images if they are part of your project assets
+import heroVideoThumbnail from "@/assets/images/hero-thumbnail.png";
+
 const Hero = () => {
   return (
     <section id="home" className="container py-16 md:py-24 scroll-mt-24">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div className="space-y-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            Unlock New Horizons <span aria-hidden>.</span>
-          </h1>
-          <p className="text-muted-foreground text-2xl md:text-3xl">
-            With Elite Global Developers
-          </p>
-          <div className="md:hidden">
-            <Button className="rounded-full px-6">Sign Up</Button>
+      {/* Main container with vertical flow */}
+      <div className="flex flex-col gap-10">
+        {/* Top row: Text and Button */}
+        <div className="flex justify-between items-start">
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl lg:text-5xl font-bold leading-tight">
+              Unlock New Horizons <span aria-hidden>.</span>
+            </h1>
+            {/* Updated paragraph to split text across two lines */}
+            <p className="text-muted-foreground text-2xl md:text-4xl">
+              With Elite Global
+              <br />
+              Developers
+            </p>
+          </div>
+          {/* Sign Up button is now here, visible on all screen sizes */}
+          <div className="hidden md:block">
+            <Button className="rounded-full px-6 py-3 text-base">Sign Up</Button>
           </div>
         </div>
 
-        <div className="space-y-6">
-          <div className="hidden md:block">
-            <Button className="rounded-full px-6">Sign Up</Button>
-          </div>
-          <div className="relative w-full rounded-2xl bg-muted shadow-sm aspect-video overflow-hidden">
-            <button
-              aria-label="Play video"
-              className="absolute inset-0 m-auto h-16 w-16 rounded-full bg-background/90 grid place-content-center shadow border text-foreground/80 hover:text-foreground transition-colors"
-            >
-              <Play />
-            </button>
-          </div>
+        {/* Bottom row: Video Player */}
+        <div 
+          className="relative w-full rounded-2xl bg-muted shadow-sm aspect-video overflow-hidden bg-cover bg-center"
+          // You can replace this placeholder with your actual video thumbnail
+          style={{ backgroundImage: "url('https://placehold.co/1280x720/e2e8f0/e2e8f0')" }}
+        >
+          {/* You can add your actual thumbnail image here */}
+          <img src={heroVideoThumbnail} alt="Video thumbnail" className="w-full h-full object-cover" />
+          
+          <button
+            aria-label="Play video"
+            className="absolute inset-0 m-auto h-16 w-16 rounded-full bg-background/90 grid place-content-center shadow border text-foreground/80 hover:text-foreground transition-colors"
+          >
+            <Play className="h-6 w-6"/>
+          </button>
         </div>
+        
+        {/* Sign Up button for mobile, placed below the video */}
+        <div className="md:hidden flex justify-center">
+            <Button className="rounded-full px-6 py-3 text-base">Sign Up</Button>
+        </div>
+
       </div>
     </section>
   );

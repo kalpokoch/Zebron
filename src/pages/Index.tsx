@@ -16,15 +16,15 @@ const Index = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <Header />
-      <main>
+      <main className="max-w-[1150px] mx-auto">
+        <Header />
         <Hero />
         <Services />
         <CTA />
         <Team />
         <Results />
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 };
