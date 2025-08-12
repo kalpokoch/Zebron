@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 
-// Correctly import the logo from its new location
+// Assuming the logo is in the assets/images folder
 import zebronLogo from "@/assets/images/icon.svg";
 
 const Header = () => {
@@ -21,16 +21,18 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="pt-10 sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-20 items-center justify-between">
         {/* Logo and Site Name */}
         <a href="#home" className="flex items-center gap-2">
           <img
             src={zebronLogo}
             alt="Zebron Logo"
-            className="h-7 w-auto" // Adjusted size slightly
+            className="h-6 w-auto"
           />
-          <span className="font-bold text-lg tracking-tight">Zebron</span>
+          <span className="custom-zebron">
+            Zebron
+          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -39,7 +41,7 @@ const Header = () => {
             <li key={item.label}>
               <a
                 href={item.href}
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-foreground hover:text-foreground/80 transition-colors"
               >
                 {item.label}
               </a>
@@ -47,14 +49,16 @@ const Header = () => {
           ))}
         </ul>
 
-        {/* Desktop Action Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" className="rounded-full px-5">
+        {/* Desktop Action Buttons - hidden on mobile */}
+        <div className="hidden md:inline-flex items-center p-1 border border-solid border-neutral-800 rounded-xl">
+          <Button 
+            variant="ghost" 
+            className="px-5 py-2 text-black hover:bg-gray-100 rounded-lg"
+          >
             Login
           </Button>
-          <Button className="rounded-full px-5">
+          <Button className="rounded-lg px-5 py-2 bg-black text-white hover:bg-neutral-800">
             Get Started
-            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
 
@@ -73,7 +77,7 @@ const Header = () => {
 
       {/* Mobile Menu Panel */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b z-40">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b z-40">
           <ul className="flex flex-col items-center gap-6 p-6">
             {navItems.map((item) => (
               <li key={item.label}>
@@ -87,14 +91,19 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col items-center gap-4 p-6 border-t">
-            <Button variant="outline" className="w-full rounded-full">
-              Login
-            </Button>
-            <Button className="w-full rounded-full">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+          {/* Mobile Action Buttons - styled like the desktop version */}
+          <div className="flex justify-center p-6 border-t">
+            <div className="inline-flex items-center p-1 border border-solid border-neutral-800 rounded-xl">
+              <Button 
+                variant="ghost" 
+                className="px-5 py-2 text-black hover:bg-gray-100 rounded-lg"
+              >
+                Login
+              </Button>
+              <Button className="rounded-lg px-5 py-2 bg-black text-white hover:bg-neutral-800">
+                Get Started
+              </Button>
+            </div>
           </div>
         </div>
       )}

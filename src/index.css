@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;700&family=Aclonica&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,10 +101,35 @@ All colors MUST be HSL.
   }
 
   html {
+    font-family: 'Fahkwang', sans-serif;
+    font-weight: 600; /* SemiBold */
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1; /* 100% */
+    letter-spacing: 0; /* 0% tracking */
+    text-transform: capitalize;
     scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  #root {
+    @apply max-w-[1150px] mx-auto;
+  }
+}
+@layer components {
+  .custom-zebron {
+    font-family: 'Aclonica', sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: capitalize;
   }
 }

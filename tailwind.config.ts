@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily:{
+				fankwang: ['Fahkwang', 'sans-serif'],
+				aclonica: ['Aclonica', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
