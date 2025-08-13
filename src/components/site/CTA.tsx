@@ -1,25 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import AboutSectionIMG from "@/assets/images/AboutSection.jpg";
 
 const CTA = () => {
   return (
     <section id="cta" className="container py-16 md:py-24 scroll-mt-24">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div className="rounded-3xl bg-muted aspect-[4/5] shadow-sm" aria-label="Consultation image placeholder" />
+      <div className="grid gap-0 lg:grid-cols-[1fr_4.3fr]">
+        
+        {/* Left Column - Image in Card Shape */}
+        <div className="rounded-3xl overflow-hidden shadow-sm max-w-[200px] mx-auto lg:mx-0">
+          <img
+            src={AboutSectionIMG}
+            alt="Consultation with tech experts"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
+        {/* Right Column */}
         <div className="space-y-6">
-          <p className="text-muted-foreground">
-            Connect With Top-Tier Developers From Around The Globe
-          </p>
-          <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
-            Level Up Your Future With Leading Global Tech Talent
+          {/* Row 1: Level Up + Tagline */}
+          <div className="flex flex-wrap items-baseline gap-x-3">
+              <h2 className="text-5xl md:text-7xl font-semibold leading-tight">
+                Level Up{" "}
+                <span className="text-muted-foreground text-base md:text-lg font-semibold">
+                  Connect With Top-Tier Developers From Around The Globe
+                </span>
+              </h2>
+          </div>
+
+
+          {/* Row 2: Full sentence heading */}
+          <h2 className="text-5xl md:text-6xl font-semibold leading-tight max-w-8xl">
+            Your Future With Leading Global <br />
+            <span className="lg:pl-[610px]">Tech Talent</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            And Bring Your Vision To Life. Whether You're Building Your Next Product, Scaling Your Team, Or Driving Innovation, Our Network Of World-Class Tech Talent Is Here To Help You Go Further—Faster.
+
+          {/* Row 3: Body paragraph */}
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+            And Bring Your Vision To Life. Whether You're Building Your Next Product,
+            Scaling Your Team, Or Driving Innovation, Our Network Of World-Class Tech
+            Talent Is Here To Help You Go Further—Faster.
           </p>
 
-          <Button className="rounded-full px-6">
-            Book A Free Consultation <ArrowRight />
+          {/* Button */}
+          <Button size="lg">
+            Book A Free Consultation <ArrowRight className="ml-2" />
           </Button>
         </div>
       </div>
