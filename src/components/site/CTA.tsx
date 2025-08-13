@@ -8,7 +8,7 @@ const CTA = () => {
       <div className="grid gap-10 lg:grid-cols-[1.3fr_4fr] relative">
         
         {/* Left Column - Image in Card Shape */}
-        <div className="rounded-3xl overflow-hidden shadow-sm max-w-[800px] mx-auto lg:mx-2 lg:min-h-[600px]">
+        <div className="rounded-3xl overflow-hidden shadow-sm max-w-[260px] lg:max-w-[800px] lg:mx-auto lg:mx-2 lg:min-h-[600px]">
           <img
             src={AboutSectionIMG}
             alt="Consultation with tech experts"
@@ -49,10 +49,10 @@ const CTA = () => {
           </div>
 
           {/* Button */}
-          <Button size="lg" className="w-full lg:w-[64%] lg:h-[20%] lg:text-3xl rounded-[20px] gap-32">
+          <Button size="lg" className="text-sm gap-5 lg:w-full lg:w-[64%] lg:h-[20%] lg:text-3xl rounded-[20px] lg:gap-32">
             Book A Free Consultation
-            <span className="flex items-center justify-center w-20 h-20 rounded-full" style={{ backgroundColor: "#D9D9D926" }}>
-              <ArrowRight className="ml-0 w-20 h-auto" />
+            <span className="flex items-center justify-center lg:w-20 lg:h-20 rounded-full" style={{ backgroundColor: "#D9D9D926" }}>
+              <ArrowRight className="lg:ml-0 max-w-10 h-auto lg:w-20 lg:h-auto" />
             </span>
           </Button>
         </div>
