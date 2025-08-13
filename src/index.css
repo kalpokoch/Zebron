@@ -132,3 +132,26 @@ All colors MUST be HSL.
     text-transform: capitalize;
   }
 }
+
+
+.card {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem; /* same as rounded-2xl */
+  background-color: #D9D9D9;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.card-bottom {
+  margin-bottom: 7px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9); /* or your chosen color */
+  padding: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+

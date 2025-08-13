@@ -28,8 +28,7 @@ const Team = () => {
         {members.map((m) => (
           <article
             key={m.id}
-            className="rounded-2xl border bg-card shadow-sm overflow-hidden"
-            style={{ boxShadow: 'inset 0 -10px 10px -10px rgba(0,0,0,0.2)' }}
+            className="card rounded-2xl border bg-card shadow-sm overflow-hidden"
             aria-label={`Team member card for ${m.name}`}
           >
             <img
@@ -38,8 +37,8 @@ const Team = () => {
               className="aspect-square w-full object-cover"
               loading="lazy"
             />
-            <div className="p-4">
-              <p className="font-medium">{m.name}</p>
+            <div className="p-40 lg:text-3xl card-bottom">
+              <p className="font-large">{m.name}</p>
               <p className="text-sm text-muted-foreground">{m.role}</p>
             </div>
           </article>
