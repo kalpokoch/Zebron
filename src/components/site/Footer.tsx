@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer id="footer" className="w-full bg-white py-12 md:py-16">
       {/* Decorative line with icons */}
-      <div className="relative w-full mb-8 overflow-visible">
+      <div className="container relative w-full mb-8 overflow-visible">
         {/* Full-width gradient line */}
-        <div className="w-full h-px bg-gradient-to-r from-muted-foreground/40 via-transparent to-muted-foreground/40" />
+        <div className="w-full h-px bg-gradient-to-r  from-muted-foreground/40 via-transparent to-muted-foreground/40" />
       </div>
 
       {/* Constrained footer content */}
