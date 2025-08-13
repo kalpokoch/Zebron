@@ -16,7 +16,7 @@ const Index = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <main className="max-w-[1150px] mx-auto">
+      <main className="max-w-[1250px] mx-auto">
         <Header />
         <Hero />
         <Services />

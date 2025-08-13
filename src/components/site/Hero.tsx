@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-
-// It's a good practice to import images if they are part of your project assets
 import heroVideoThumbnail from "@/assets/images/hero-thumbnail.png";
 
 const Hero = () => {
@@ -12,19 +10,19 @@ const Hero = () => {
         {/* Top row: Text and Button */}
         <div className="flex justify-between items-start">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold leading-tight">
               Unlock New Horizons <span aria-hidden>.</span>
             </h1>
             {/* Updated paragraph to split text across two lines */}
-            <p className="text-muted-foreground text-2xl md:text-4xl">
+            <p className="text-muted-foreground text-2xl md:text-4xl lg:text-6xl">
               With Elite Global
               <br />
               Developers
             </p>
           </div>
           {/* Sign Up button is now here, visible on all screen sizes */}
-          <div className="hidden md:block">
-            <Button className="rounded-full px-6 py-3 text-base">Sign Up</Button>
+          <div className="hidden md:block mr-[200px]">
+            <Button>Sign Up</Button>
           </div>
         </div>
 

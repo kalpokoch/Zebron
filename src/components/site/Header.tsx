@@ -53,11 +53,10 @@ const Header = () => {
         <div className="hidden md:inline-flex items-center p-1 border border-solid border-neutral-800 rounded-xl">
           <Button 
             variant="ghost" 
-            className="px-5 py-2 text-black hover:bg-gray-100 rounded-lg"
           >
             Login
           </Button>
-          <Button className="rounded-lg px-5 py-2 bg-black text-white hover:bg-neutral-800">
+          <Button>
             Get Started
           </Button>
         </div>
