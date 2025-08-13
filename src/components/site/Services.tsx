@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import serviceImg from '@/assets/images/Serviceimg.jpg';
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 interface ServiceItem {
@@ -17,7 +18,7 @@ const services: ServiceItem[] = [
     description:
       "We Create Impactful, Memorable Logos That Capture Your Brand's Identity And Values. Our Designs Are Crafted To Leave A Lasting Impression Across Digital And Print Platforms, Setting The Foundation For Strong Visual Recognition.",
     arrow: "down",
-    image: "/Serviceimg.jpg", // move to public folder
+    image: serviceImg, // move to public folder
   },
   {
     number: "02.",
@@ -25,7 +26,7 @@ const services: ServiceItem[] = [
     description:
       "From Events To Promotions, We Design Eye-Catching Posters That Communicate Your Message Clearly And Creatively. Our Team Blends Color, Typography, And Layout To Ensure Your Brand Grabs Attention In Both Digital And Print Formats.",
     arrow: "down",
-    image: "/Serviceimg.jpg",
+    image: serviceImg,
   },
   {
     number: "03.",
@@ -33,7 +34,7 @@ const services: ServiceItem[] = [
     description:
       "We Design Intuitive And Engaging User Interfaces For Web And Mobile Apps. Our UX Process Focuses On Usability, Clarity, And Aesthetics—Ensuring A Seamless Experience That Enhances Customer Satisfaction And Drives Business Results.",
     arrow: "down",
-    image: "/Serviceimg.jpg",
+    image: serviceImg,
   },
   {
     number: "04.",
@@ -41,7 +42,7 @@ const services: ServiceItem[] = [
     description:
       "We Build Powerful, Scalable Software Tailored To Solve Specific Business Challenges. From Automation Tools To Enterprise Solutions, Our Process Ensures Flexibility, Functionality, And Long-Term Value Through Clean Code And Modern Architecture.",
     arrow: "down",
-    image: "/Serviceimg.jpg",
+    image: serviceImg,
   },
 ];
 
