@@ -30,13 +30,13 @@ const CTA = () => {
           </div>
 
           {/* Row 2: Headline split into grid */}
-          <div className="lg:grid">
+          <div className="lg:grid lg:grid-cols-2 lg:items-start">
             {/* Left side of headline */}
-            <h2 className="text-5xl md:text-6xl lg:w-[200%] font-semibold leading-tight relative lg:col-start-1 lg:row-start-1 lg:pr-0 lg:mr-[-1500px]">
+            <h2 className="text-5xl md:text-6xl font-semibold leading-tight lg:w-[980px]">
               Your Future With Leading Global
             </h2>
             {/* Right side of headline */}
-            <h3 className="lg:mt-20 text-5xl md:text-6xl font-semibold leading-tight lg:col-start-2 lg:row-start-1">
+            <h3 className="text-5xl md:text-6xl font-semibold leading-tight lg:mt-20 lg:pl-32">
               Tech Talent
             </h3>
             

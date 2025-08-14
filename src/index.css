@@ -98,6 +98,7 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    /* outline: 1px solid red; */
   }
 
   #root {
