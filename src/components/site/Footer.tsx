@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
 
       {/* Constrained footer content */}
-      <div className="max-w-[1150px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
+      <div className="container max-w-[1150px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
         <a
           href="#"
           className="flex items-center gap-2 hover:text-foreground transition-colors"

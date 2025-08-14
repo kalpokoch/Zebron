@@ -30,7 +30,7 @@ const FooterDecor = () => {
         style={{
           right: "1vw",
           top: "-14vw",
-          height: "5vw",
+          height: "4vw",
           width: "auto",
           opacity: 0.9,
         }}

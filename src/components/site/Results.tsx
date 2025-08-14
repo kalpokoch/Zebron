@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDownRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
-// Import your images
 import img1 from "@/assets/images/capsule1.jpg";
 import img2 from "@/assets/images/capsule2.jpg";
 import img3 from "@/assets/images/capsule3.jpg";
 import img4 from "@/assets/images/capsule4.jpg";
-
-
-const CLOSED_ARROW_DEG = 75; 
 
 interface ResultItem {
   id: number;
@@ -45,7 +42,7 @@ const results: ResultItem[] = [
 ];
 
 const Results = () => {
-  const [openId, setOpenId] = useState<number | null>(1); // default open
+  const [openId, setOpenId] = useState<number | null>(1);
 
   const toggleOpen = (id: number) => {
     setOpenId(openId === id ? null : id);
@@ -60,7 +57,6 @@ const Results = () => {
         Real Results, <span className="text-muted-foreground">Real Impact</span>
       </h2>
 
-      {/* Flex row instead of grid */}
       <div className="flex gap-6 w-full">
         {results.map((item) => {
           const isOpen = openId === item.id;
@@ -69,16 +65,13 @@ const Results = () => {
             <motion.article
               key={item.id}
               layout
-              transition={{ layout: { duration: 0.4, ease: "easeInOut" } }}
-              className={`relative overflow-hidden shadow-sm bg-muted/60 cursor-pointer h-[520px]
-                ${isOpen ? "rounded-[32px]" : "rounded-[50px]"} 
-                flex-shrink-0`}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className={`relative overflow-hidden shadow-sm bg-muted/60 cursor-pointer h-[520px] flex-shrink-0`}
               style={{
-                flex: isOpen ? 2 : 1, // Open capsule is wider
+                flex: isOpen ? 2 : 1,
+                borderRadius: isOpen ? 32 : 50, // animate border radius smoothly
               }}
-              onClick={() => toggleOpen(item.id)}
             >
-              {/* Background Image */}
               <motion.img
                 src={item.image}
                 alt=""
@@ -91,22 +84,49 @@ const Results = () => {
                 }}
               />
 
-              {/* Arrow Button with rotation */}
-              <motion.div
-                className={`absolute top-4 right-4 grid place-content-center
-                  ${isOpen 
-                    ? "h-14 w-14 bg-[#FAC820] text-black" 
-                    : "h-10 w-10 border border-foreground/30 text-foreground/80"} 
-                  rounded-full`}
-                layout
-                animate={{ rotate: isOpen ? 90 : 0 }} // rotate 90° when open
-                transition={{ duration: 0.3 }}
-              >
-                <ArrowRight />
-              </motion.div>
+              {item.image && (
+                <motion.div
+                  layout="position" // makes button follow position smoothly
+                  className="absolute top-4 right-4"
+                  animate={{
+                    right: isOpen ? 16 : 36, // px from the right (more inward when closed)
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <motion.div
+                    animate={{
+                      width: isOpen ? 80 : 48, // animate size smoothly
+                      height: isOpen ? 80 : 48,
+                    }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full w-full h-full"
+                      style={{
+                        backgroundColor: isOpen ? "#FAC820" : "transparent",
+                        color: isOpen ? "black" : "inherit",
+                        border: isOpen ? "none" : "1px solid #ffffffff",
+                      }}
+                      onClick={() => toggleOpen(item.id)}
+                    >
+                      {isOpen ? (
+                        <ArrowRight size={36} />
+                      ) : (
+                        <ArrowDownRight
+                          size={36}
+                          style={{ color: "#ffffffff" }}
+                          />
+                      )}
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              )}
 
-
-              {/* Description when open */}
               {isOpen && (
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 p-6 text-card-foreground bg-gradient-to-t from-black/60 to-transparent"
@@ -114,7 +134,10 @@ const Results = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <p className="text-base md:text-lg leading-relaxed drop-shadow">
+                  <p 
+                    className="text-base md:text-lg lg:text-s leading-relaxed drop-shadow"
+                    style={{ color: "#F1F1F1" }}
+                    >
                     {item.description}
                   </p>
                 </motion.div>
