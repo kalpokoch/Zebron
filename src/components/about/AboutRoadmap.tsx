@@ -55,7 +55,7 @@ export default function AboutRoadmap() {
                 </h3>
 
                 {/* Right Column: Description */}
-                <p className="text-muted-foreground text-base lg:text-lg pr-28 leading-relaxed">
+                <p className="text-muted-foreground text-base lg:text-lg lg:pr-28 leading-relaxed">
                   {item.description}
                 </p>
               </div>
