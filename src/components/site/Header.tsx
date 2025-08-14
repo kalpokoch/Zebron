@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 
@@ -10,8 +11,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About Us", href: "#team" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
     { label: "What We Do", href: "#services" },
     { label: "Our Work", href: "#results" },
     { label: "Blog", href: "#footer" },
@@ -37,17 +38,27 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8 text-sm">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="text-foreground hover:text-foreground/80 transition-colors"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+  {navItems.map((item) => (
+    <li key={item.label}>
+      {item.href.startsWith("/") ? (
+        <Link
+          to={item.href}
+          className="text-foreground hover:text-foreground/80 transition-colors"
+        >
+          {item.label}
+        </Link>
+      ) : (
+        <a
+          href={item.href}
+          className="text-foreground hover:text-foreground/80 transition-colors"
+        >
+          {item.label}
+        </a>
+      )}
+    </li>
+  ))}
+</ul>
+
 
         {/* Desktop Action Buttons - hidden on mobile */}
         <div className="hidden md:inline-flex items-center p-1 border border-solid border-neutral-800 rounded-xl">
