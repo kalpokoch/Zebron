@@ -6,10 +6,10 @@ const AboutHomeSection: React.FC = () => {
     <section className="container py-16 md:py-24">
       <div className="mx-auto px-">
         {/* Top section with text content */}
-        <div className="grid md:grid-cols-2 items-start mb-12">
+        <div className="grid md:grid-cols-2 items-start mb-12 lg:gap-x-[18%]">
           {/* Column 1: Heading */}
           <div >
-            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-relaxed" style={{lineHeight: "1.5"}}>
               The Story Behind
               <br />
               <span className="text-muted-foreground">The Strategy</span>
@@ -18,7 +18,7 @@ const AboutHomeSection: React.FC = () => {
 
           {/* Column 2: Description */}
           <div className="pt-8">
-            <p className="text-lg lg:text-3xl text-muted-foreground">
+            <p className="text-lg lg:text-2xl text-muted-foreground">
               We're A Team Of Strategists, Designers, And Marketers Driven By One Mission – To Help Brands Grow With Purpose. From Bold Ideas To Measurable Results. Our Journey Is Rooted In Passion, Performance, And People. This Is Who We Are
             </p>
           </div>

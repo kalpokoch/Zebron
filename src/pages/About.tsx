@@ -2,7 +2,7 @@ import Layout from "@/components/site/Layout";
 import AboutHomeSection from "@/components/about/AboutHomeSection";
 import AboutOurStory from "@/components/about/AboutOurStory";
 import AboutWhatWeDo from "@/components/about/AboutWhatWeDo";
-import CTA from "@/components/site/CTA";
+import AboutUsCTA from "@/components/about/AboutUsCTA";
 
 export default function About() {
   return (
@@ -12,9 +12,8 @@ export default function About() {
     >
       <AboutHomeSection />
       <AboutOurStory />
+      <AboutUsCTA/>
       <AboutWhatWeDo />
-      {/* <CTA variant="primary" />  */}
-      {/* reuse; add props if you need a different style */}
     </Layout>
   );
 }
