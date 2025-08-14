@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ArrowRight, ArrowDownRight } from "lucide-react";
+
 import img1 from "@/assets/images/capsule1.jpg";
 import img2 from "@/assets/images/capsule2.jpg";
 import img3 from "@/assets/images/capsule3.jpg";
 import img4 from "@/assets/images/capsule4.jpg";
-
 
 interface ResultItem {
   id: number;
@@ -47,16 +47,45 @@ const Results = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="p-4 md:p-8 ">
       <section
         id="results"
-        className="max-w-7xl mx-auto py-16 md:py-24 space-y-10"
+        className="container mx-auto py-8 md:py-16 lg:py-24 space-y-6 md:space-y-10"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl lg:pb-20 font-semibold text-gray-900">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl lg:pb-20 font-semibold text-gray-900">
           Real Results, <span className="text-gray-500">Real Impact</span>
         </h2>
 
-        <div className="flex gap-6 w-full">
+        {/* Mobile/Tablet Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 md:hidden">
+          {results.map((item) => (
+            <div
+              key={item.id}
+              className="relative overflow-hidden shadow-lg bg-gray-200 cursor-pointer rounded-3xl"
+              style={{ height: '280px' }}
+              onClick={() => toggleOpen(item.id)}
+            >
+              {/* Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={item.image}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Description overlay - always visible on mobile */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                <p className="text-sm leading-relaxed drop-shadow-lg text-gray-100 line-clamp-3">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Expanding Layout */}
+        <div className="hidden md:flex gap-20 lg:pb-40">
           {results.map((item) => {
             const isOpen = openId === item.id;
 
@@ -127,7 +156,7 @@ const Results = () => {
                       transform: 'translateY(0)',
                     }}
                   >
-                    <p className="text-base md:text-lg leading-relaxed drop-shadow-lg text-gray-100">
+                    <p className="text-base lg:text-lg leading-relaxed drop-shadow-lg text-gray-100">
                       {item.description}
                     </p>
                   </div>
