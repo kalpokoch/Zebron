@@ -7,11 +7,11 @@ const AboutUsCTA = () => {
     <section id="cta" className="container py-16 md:py-24 scroll-mt-24 lg:py-32">
       <div className="grid gap-10 lg:grid-cols-1 relative">
     
-        <div className="rounded-3xl overflow-hidden shadow-sm h-[600px]">
+        <div className="w-full h-[400px] md:h-[500px] lg:h-[500px] rounded-lg overflow-hidden shadow-lg">
           <img
             src={AboutUsCTAIMG}
             alt="Consultation with tech experts"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover "
           />
         </div>
 

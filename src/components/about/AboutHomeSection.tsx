@@ -25,11 +25,11 @@ const AboutHomeSection: React.FC = () => {
         </div>
 
         {/* Bottom section with the image */}
-        <div className="w-full">
+        <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
           <img
             src={AboutSectionImage}
             alt="Team of strategists and designers in a meeting"
-            className="w-full h-auto rounded-lg object-cover"
+            className="w-full h-auto rounded-lg object-cover transform -translate-y-60"
             loading="lazy" // Use native browser lazy loading for better performance
           />
         </div>

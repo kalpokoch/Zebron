@@ -1,4 +1,4 @@
-export default function AboutWhatWeDo() {
+export default function AboutRoadmap() {
   return (
     <section className="px-6 py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto">

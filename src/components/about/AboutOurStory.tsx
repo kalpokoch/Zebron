@@ -14,7 +14,7 @@ const AboutOurStory: React.FC = () => {
   return (
     // Using bg-stone-50 to approximate the light beige background color
     <section 
-        className="relative overflow-hidden min-h-screen"
+        className="relative overflow-hidden "
         style={{ backgroundColor: "#C9B68833" }}
     >
       {/* Decorative semi-circle element */}
