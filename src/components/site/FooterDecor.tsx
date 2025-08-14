@@ -15,8 +15,8 @@ const FooterDecor = () => {
         className="hidden md:block absolute"
         style={{
           left: "0vw",
-          top: "-25vw",
-          height: "19vw",
+          top: "-24vw",
+          height: "17vw",
           width: "auto",
           opacity: 0.7,
         }}

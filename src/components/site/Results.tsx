@@ -51,7 +51,7 @@ const Results = () => {
   return (
     <section
       id="results"
-      className="container py-16 md:py-24 space-y-10 scroll-mt-24"
+      className="container py-16 md:py-24 space-y-10 scroll-mt-24 lg:mb-32"
     >
       <h2 className="text-4xl md:text-5xl lg:text-6xl lg:pb-20 font-semibold">
         Real Results, <span className="text-muted-foreground">Real Impact</span>
