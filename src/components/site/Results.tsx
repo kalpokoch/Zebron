@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { ArrowRight, ArrowDownRight } from "lucide-react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-
 import img1 from "@/assets/images/capsule1.jpg";
 import img2 from "@/assets/images/capsule2.jpg";
 import img3 from "@/assets/images/capsule3.jpg";
 import img4 from "@/assets/images/capsule4.jpg";
+
 
 interface ResultItem {
   id: number;
@@ -42,111 +40,104 @@ const results: ResultItem[] = [
 ];
 
 const Results = () => {
-  const [openId, setOpenId] = useState<number | null>(1);
+  const [openId, setOpenId] = useState(1);
 
-  const toggleOpen = (id: number) => {
+  const toggleOpen = (id) => {
     setOpenId(openId === id ? null : id);
   };
 
   return (
-    <section
-      id="results"
-      className="container py-16 md:py-24 space-y-10 scroll-mt-24 lg:mb-32"
-    >
-      <h2 className="text-4xl md:text-5xl lg:text-6xl lg:pb-20 font-semibold">
-        Real Results, <span className="text-muted-foreground">Real Impact</span>
-      </h2>
+    <div className="min-h-screen bg-gray-50 p-8">
+      <section
+        id="results"
+        className="max-w-7xl mx-auto py-16 md:py-24 space-y-10"
+      >
+        <h2 className="text-4xl md:text-5xl lg:text-6xl lg:pb-20 font-semibold text-gray-900">
+          Real Results, <span className="text-gray-500">Real Impact</span>
+        </h2>
 
-      <div className="flex gap-6 w-full">
-        {results.map((item) => {
-          const isOpen = openId === item.id;
+        <div className="flex gap-6 w-full">
+          {results.map((item) => {
+            const isOpen = openId === item.id;
 
-          return (
-            <motion.article
-              key={item.id}
-              layout
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className={`relative overflow-hidden shadow-sm bg-muted/60 cursor-pointer h-[520px] flex-shrink-0`}
-              style={{
-                flex: isOpen ? 2 : 1,
-                borderRadius: isOpen ? 32 : 50, // animate border radius smoothly
-              }}
-            >
-              <motion.img
-                src={item.image}
-                alt=""
-                className="w-full h-full object-cover"
-                initial={false}
-                animate={{
-                  scale: isOpen ? 1.05 : 1,
-                  opacity: isOpen ? 1 : 0.85,
-                  transition: { duration: 0.4 },
+            return (
+              <div
+                key={item.id}
+                className="relative overflow-hidden shadow-lg bg-gray-200 cursor-pointer h-[520px] flex-shrink-0 transition-all duration-500 ease-in-out"
+                style={{
+                  flex: isOpen ? 2 : 1,
+                  borderRadius: isOpen ? '32px' : '50px',
                 }}
-              />
+                onClick={() => toggleOpen(item.id)}
+              >
+                {/* Image container with fixed positioning to prevent stretching */}
+                <div className="absolute inset-0">
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                    style={{
+                      opacity: isOpen ? 1 : 0.85,
+                      transformOrigin: 'center center',
+                    }}
+                  />
+                </div>
 
-              {item.image && (
-                <motion.div
-                  layout="position" // makes button follow position smoothly
-                  className="absolute top-4 right-4"
-                  animate={{
-                    right: isOpen ? 16 : 36, // px from the right (more inward when closed)
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeInOut",
+                {/* Button */}
+                <div
+                  className="absolute top-4 transition-all duration-500 ease-in-out"
+                  style={{
+                    right: isOpen ? '16px' : '36px',
                   }}
                 >
-                  <motion.div
-                    animate={{
-                      width: isOpen ? 80 : 48, // animate size smoothly
-                      height: isOpen ? 80 : 48,
+                  <div
+                    className="transition-all duration-500 ease-in-out"
+                    style={{
+                      width: isOpen ? '80px' : '48px',
+                      height: isOpen ? '80px' : '48px',
                     }}
-                    transition={{ duration: 0.6 }}
                   >
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full w-full h-full"
+                    <button
+                      className="w-full h-full rounded-full border transition-all duration-500 ease-in-out flex items-center justify-center"
                       style={{
                         backgroundColor: isOpen ? "#FAC820" : "transparent",
-                        color: isOpen ? "black" : "inherit",
-                        border: isOpen ? "none" : "1px solid #ffffffff",
+                        color: isOpen ? "black" : "white",
+                        borderColor: isOpen ? "#FAC820" : "rgba(255, 255, 255, 0.8)",
                       }}
-                      onClick={() => toggleOpen(item.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleOpen(item.id);
+                      }}
                     >
                       {isOpen ? (
                         <ArrowRight size={36} />
                       ) : (
-                        <ArrowDownRight
-                          size={36}
-                          style={{ color: "#ffffffff" }}
-                          />
+                        <ArrowDownRight size={24} />
                       )}
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              )}
+                    </button>
+                  </div>
+                </div>
 
-              {isOpen && (
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 p-6 text-card-foreground bg-gradient-to-t from-black/60 to-transparent"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <p 
-                    className="text-base md:text-lg lg:text-s leading-relaxed drop-shadow"
-                    style={{ color: "#F1F1F1" }}
-                    >
-                    {item.description}
-                  </p>
-                </motion.div>
-              )}
-            </motion.article>
-          );
-        })}
-      </div>
-    </section>
+                {/* Description overlay */}
+                {isOpen && (
+                  <div
+                    className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 translate-y-5 transition-all duration-500 ease-in-out delay-200"
+                    style={{
+                      opacity: 1,
+                      transform: 'translateY(0)',
+                    }}
+                  >
+                    <p className="text-base md:text-lg leading-relaxed drop-shadow-lg text-gray-100">
+                      {item.description}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
   );
 };
 
