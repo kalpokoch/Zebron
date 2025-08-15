@@ -10,7 +10,7 @@ const Header = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "#services" },
+    { label: "What We Do", href: "/whatwedo" },
     { label: "Our Work", href: "/ourwork" },
     { label: "Blog", href: "#footer" },
   ];
@@ -74,13 +74,23 @@ const Header = () => {
           <ul className="flex flex-col items-center gap-6 p-6">
             {navItems.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="text-lg text-foreground/80 hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                </a>
+                {item.href.startsWith("/") ? (
+                  <Link
+                    to={item.href}
+                    onClick={closeMenu}
+                    className="text-lg text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    onClick={closeMenu}
+                    className="text-lg text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -99,6 +109,7 @@ const Header = () => {
           </div>
         </div>
       )}
+
     </header>
   );
 };
