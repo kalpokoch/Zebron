@@ -1,5 +1,6 @@
 import React from 'react';
 import OurServiesImg from "@/assets/images/capsule2.jpg";
+import OurServiesImg2 from "@/assets/images/work2.jpg";
 
 const ServicesPage: React.FC = () => {
   return (
@@ -61,7 +62,7 @@ const ServicesPage: React.FC = () => {
       {/* Second Image Section */}
         <div className="w-full h-[400px] md:h-[500px] lg:h-[500px] rounded-3xl lg overflow-hidden shadow-lg">
           <img 
-            src="src/assets/images/work2.jpg" 
+            src={OurServiesImg2}
             alt="Team meeting" 
             className="w-full h-full object-cover"
           />
