@@ -11,7 +11,7 @@ const AboutUsCTA = () => {
           <img
             src={AboutUsCTAIMG}
             alt="Consultation with tech experts"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
         </div>
 

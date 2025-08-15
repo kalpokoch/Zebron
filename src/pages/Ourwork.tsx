@@ -1,6 +1,7 @@
 import Layout from "@/components/site/Layout";
 import Ourworks from "@/components/ourwork/Ourworks";
-import WorkImg from "@/components/ourwork/WorkImg"
+import WorkImg from "@/components/ourwork/WorkImg";
+import AboutUsCTA from "@/components/about/AboutUsCTA";
 
 export default function About() {
   return (
