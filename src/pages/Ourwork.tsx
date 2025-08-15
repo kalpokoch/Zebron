@@ -1,6 +1,6 @@
 import Layout from "@/components/site/Layout";
 import Ourworks from "@/components/ourwork/Ourworks";
-import WorkImg from "@/components/ourwork/workImg"
+import WorkImg from "@/components/ourwork/WorkImg"
 
 export default function About() {
   return (

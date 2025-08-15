@@ -55,7 +55,7 @@ const works: workItem[] = [
   },
 ];
 
-const Works = () => {
+const WorkImg = () => {
   const [openId, setOpenId] = useState<number | null>(1);
 
   const toggleOpen = (id: number) => {
@@ -201,4 +201,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default WorkImg;
