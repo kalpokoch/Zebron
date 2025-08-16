@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Button } from '@/components/ui/button';
 import BlogImg from '@/assets/images/blogsectionIMG.jpg';
 
@@ -6,6 +7,10 @@ const BlogSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Marketing Tips');
 
   const tabs = ['All', 'Business Strategies', 'Marketing Tips'];
+
+  const navItems = [
+    { label: "BlogDetails", href: "/blogdetails" },
+  ];
 
   return (
     <section className="py-16 bg-white">
@@ -63,9 +68,11 @@ const BlogSection: React.FC = () => {
               And Bring Your Vision To Life. Whether You're Building Your Next Product, Scaling Your Team, Or Driving Innovation, Our Network Of World-Class Tech Talent
             </p>
             
-            <Button>
-              Read More
-            </Button>
+            <Link to={navItems[0].href}>
+              <Button>
+                Read More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
