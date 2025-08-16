@@ -12,7 +12,7 @@ const Header = () => {
     { label: "About Us", href: "/about" },
     { label: "What We Do", href: "/whatwedo" },
     { label: "Our Work", href: "/ourwork" },
-    { label: "Blog", href: "#footer" },
+    { label: "Blog", href: "/blog" },
   ];
 
   const closeMenu = () => setIsMenuOpen(false);
