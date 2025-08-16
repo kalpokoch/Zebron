@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import Loader from "@/components/Loader"; // adjust path
+import { AnimatePresence } from "framer-motion";
+import Loader from "@/components/Loader";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import FooterDecor from "@/components/site/FooterDecor";
+import RouteWrapper from "./components/RouteWrapper";
 import Index from "./pages/Index";
 import About from "@/pages/About";
 import WhatWeDo from "./pages/WhatWeDo";
@@ -28,92 +29,57 @@ function AnimatedRoutes() {
         <Route
           path="/"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <Index />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="/about"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <About />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="/ourwork"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <Ourwork />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="/whatwedo"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <WhatWeDo />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="/blog"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <Blog />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="/blogdetails"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <BlogDetails />
-            </motion.div>
+            </RouteWrapper>
           }
         />
         <Route
           path="*"
           element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <RouteWrapper>
               <NotFound />
-            </motion.div>
+            </RouteWrapper>
           }
         />
       </Routes>
@@ -122,18 +88,18 @@ function AnimatedRoutes() {
 }
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [appLoading, setAppLoading] = useState(true);
 
   useEffect(() => {
-    // simulate preloading (fonts, images, API calls etc.)
+    // Initial app loading (fonts, initial assets, etc.)
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // adjust delay as needed
+      setAppLoading(false);
+    }, 1000); // Reduced since we now have per-route loading
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
+  if (appLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-black">
         <Loader />
