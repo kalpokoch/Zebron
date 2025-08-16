@@ -42,7 +42,7 @@ const BlogSection: React.FC = () => {
         {/* Blog Content */}
         <div className="grid lg:grid-cols-[2fr_1fr] gap-10 items-center">
           {/* Image */}
-          <div className="order-2 lg:order-1 ">
+          <div className="order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden">
               <img
                 src={BlogImg}
