@@ -16,7 +16,7 @@ import WhatWeDo from "./pages/WhatWeDo";
 import Ourwork from "@/pages/Ourwork";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
-import Landing2 from "./pages/landing2";
+import Landing2 from "./pages/Landing2";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
