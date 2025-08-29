@@ -42,7 +42,7 @@ export default function Index() {
       {/* <Header /> */}
       
       <main className="px-4 lg:px-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="container">
           {/* Hero Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start py-8 lg:py-16">
             {/* Left Column - Text and Image */}
