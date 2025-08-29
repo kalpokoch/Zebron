@@ -34,46 +34,45 @@ const RoadmapStep = ({
   <div className="relative">
     {/* Background Step Number */}
     <div className="absolute left-0 top-0 select-none pointer-events-none">
-      <span className="font-fahkwang text-[130px] font-bold text-black/10 leading-none">
+      <span className="font-fahkwang text-[80px] md:text-[100px] lg:text-[130px] font-bold text-black/10 leading-none">
         {stepNumber}
       </span>
     </div>
 
     {/* Content Container */}
-    <div className="relative pl-24 lg:pl-32 pt-8 pb-12">
+    <div className="relative pl-16 md:pl-20 lg:pl-24 xl:pl-32 pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-10 lg:pb-12 pr-4 md:pr-8">
       {/* Step Title */}
-      <div className="mb-6">
+      <div className="mb-4 md:mb-5 lg:mb-6">
         {titleStyle === 'mixed' && title === 'Deep Discovery' ? (
-          <h3 className="font-fahkwang text-4xl lg:text-[60px] font-bold leading-normal capitalize">
+          <h3 className="font-fahkwang text-2xl md:text-3xl lg:text-4xl xl:text-[60px] font-bold leading-tight capitalize">
             <span className="text-black">Deep D</span>
             <span className="text-black">iscovery</span>
           </h3>
         ) : (
-          <h3 className="font-fahkwang text-4xl lg:text-[60px] font-bold text-black leading-normal capitalize">
+          <h3 className="font-fahkwang text-2xl md:text-3xl lg:text-4xl xl:text-[60px] font-bold text-black leading-tight capitalize">
             {title}
           </h3>
         )}
       </div>
 
       {/* Step Description */}
-      <div className="mb-8 max-w-5xl">
+      <div className="mb-6 md:mb-7 lg:mb-8 max-w-4xl lg:max-w-5xl">
         {titleStyle === 'mixed' && title === 'Deep Discovery' ? (
-          <p className="font-fahkwang text-xl lg:text-[21px] font-bold leading-normal capitalize">
+          <p className="font-fahkwang text-sm md:text-base lg:text-xl xl:text-[21px] font-bold leading-relaxed capitalize">
             <span className="text-black/50">We dive into your bus</span>
             <span className="text-black/50">iness goals, audience, and cha</span>
             <span className="text-black/50">llenges to uncover insights that guide everything we do.</span>
           </p>
         ) : (
-          <p className="font-fahkwang text-xl lg:text-[21px] font-bold text-black/50 leading-normal capitalize">
+          <p className="font-fahkwang text-sm md:text-base lg:text-xl xl:text-[21px] font-bold text-black/50 leading-relaxed capitalize">
             {description}
           </p>
         )}
       </div>
-    
 
-      {/* Arrow Button */}
-      <div className="absolute right-0 top-8 lg:top-12">
-        <div className="w-[72px] h-[72px]  rounded-full border border-black/10 flex items-center justify-center rotate-[120deg]  hover:border-black/30 transition-colors cursor-pointer">
+      {/* Arrow Button - Hidden on Mobile, Visible on Desktop */}
+      <div className="absolute right-0 top-4 md:top-6 lg:top-8 xl:top-12 hidden md:block">
+        <div className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[72px] lg:h-[72px] rounded-full border border-black/10 flex items-center justify-center rotate-[120deg] hover:border-black/30 transition-colors cursor-pointer">
           <div className="rotate-[-134deg]">
             <ArrowIcon />
           </div>
@@ -83,7 +82,7 @@ const RoadmapStep = ({
 
     {/* Horizontal Divider Line */}
     {!isLast && (
-      <div className="w-full h-px bg-black mb-8 lg:mb-12"></div>
+      <div className="w-full h-px bg-black mb-6 md:mb-8 lg:mb-12"></div>
     )}
   </div>
 );
@@ -114,11 +113,11 @@ export default function RoadmapSection() {
   ];
 
   return (
-    <section className="w-full py-16 lg:py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 lg:px-16">
+    <section className="w-full py-12 md:py-16 lg:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-16">
         {/* Heading */}
-        <div className="mb-12 lg:mb-16 text-center">
-          <h2 className="font-fahkwang text-6xl lg:text-[82px] font-bold leading-normal capitalize">
+        <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-16 text-center">
+          <h2 className="font-fahkwang text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[82px] font-bold leading-tight capitalize">
             <span className="text-black">The Road </span>
             <span className="text-black/50">to Results</span>
           </h2>
