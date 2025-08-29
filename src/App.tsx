@@ -16,6 +16,7 @@ import WhatWeDo from "./pages/WhatWeDo";
 import Ourwork from "@/pages/Ourwork";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import Landing2 from "./pages/landing2";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -71,6 +72,14 @@ function AnimatedRoutes() {
           element={
             <RouteWrapper>
               <BlogDetails />
+            </RouteWrapper>
+          }
+        />
+        <Route
+          path="/landing2"
+          element={
+            <RouteWrapper>
+              <Landing2 />
             </RouteWrapper>
           }
         />

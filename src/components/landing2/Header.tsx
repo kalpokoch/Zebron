@@ -21,7 +21,7 @@ const Header = () => {
     <header className="relative pt-10 sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
         {/* Logo and Site Name */}
-        <a href="/landing2" className="flex items-center gap-2">
+        <a href="#home" className="flex items-center gap-2">
           <img src={zebronLogo} alt="Zebron Logo" className="h-6 w-auto" />
           <span className="custom-zebron">Zebron</span>
         </a>
